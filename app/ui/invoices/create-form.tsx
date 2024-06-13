@@ -15,7 +15,8 @@ import { createInvoice } from '@/app/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState = { message: null, errors: {} };
-  const [ state, dispatch ] = useFormState(createInvoice, initialState);
+  // @ts-expect-error -- useFormState is not yet typed
+  const [state, dispatch] = useFormState(createInvoice, initialState);
 
   console.log(state);
   return (
